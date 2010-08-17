@@ -1,6 +1,22 @@
-*FROAuth2Request*
+**FROAuth2Request**
 
 FROAuth2Request sole purpose is to allow lovers of the fantastic ASIHTTPRequest library to extend it's usage to cover services that conform to the new OAuth2 spec. Note the (fortunately) the new OAuth 2 specification doesn't work with the old OAuth 1 spec.
 
+The project isn't completely free standing and dependings on the following:
+
+ASIHTTPRequest (DUH)
+
+http://github.com/pokeb/asi-http-request/tree
+
+json-framework
+
+http://code.google.com/p/json-framework/
+
+Lastly if you want to take advantage of the UnitTests supplied you need the fantastic GHUnit
+
+http://github.com/gabriel/gh-unit
+
+
 Comments, Forks and all the good stuff is welcome
+
 jonathan@float-right.co.uk
