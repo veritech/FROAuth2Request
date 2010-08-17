@@ -1,0 +1,6 @@
+*FROAuth2Request*
+
+FROAuth2Request sole purpose is to allow lovers of the fantastic ASIHTTPRequest library to extend it's usage to cover services that conform to the new OAuth2 spec. Note the (fortunately) the new OAuth 2 specification doesn't work with the old OAuth 1 spec.
+
+Comments, Forks and all the good stuff is welcome
+jonathan@float-right.co.uk
