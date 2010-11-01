@@ -7,6 +7,12 @@
 
 #import "FROAuth2Token.h"
 
+@interface FROAuth2Token(private)
+
+-(void) restore;
+
+@end
+
 
 @implementation FROAuth2Token
 
@@ -16,6 +22,23 @@
 @synthesize expiry = _expiry;
 
 @synthesize readOnly = _readOnly;
+
++(id) tokenDefault{
+	FROAuth2Token	*token;
+	
+	token = [[[FROAuth2Token alloc] init] autorelease];
+	
+	[token restore];
+	DebugLog(@"Restored Token %@",token);
+	if( [token tokenString] ){
+		return token;
+	}
+	else{
+		DebugLog(@"Bad token");
+		return nil;
+	}
+}
+
 
 -(id) init{
 	
@@ -119,11 +142,16 @@
 	
 	_readOnly = [defaults boolForKey:[self keyForAttribute:@"readOnly"]];
 	
-	_token = [defaults stringForKey:[self keyForAttribute:@"tokenString"]];
+	_token = [[defaults stringForKey:[self keyForAttribute:@"tokenString"]] retain];
+ 
+	_refreshToken = [[defaults stringForKey:[self keyForAttribute:@"refreshToken"]] retain];
 	
-	_refreshToken = [defaults stringForKey:[self keyForAttribute:@"refreshToken"]];
+	_expiry = [[defaults objectForKey:[self keyForAttribute:@"expiry"]] retain];
+}
+
+-(NSString*) description{
 	
-	_expiry = [defaults objectForKey:[self keyForAttribute:@"expiry"]];
+	return [NSString stringWithFormat:@"%@\r\ntoken = %@\r\nexpiry = %@",[super description], _token, _expiry];
 }
 
 -(void) dealloc{
