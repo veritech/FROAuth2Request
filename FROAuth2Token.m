@@ -73,9 +73,9 @@
 		
 		//If there is scope parameter
 		if([kvPairs objectForKey:@"scope"]){
-			if( [[kvPairs objectForKey:@"scope"] isEqualToString:@"read"] ){
-				_readOnly = YES;
-			}			
+			if( [[kvPairs objectForKey:@"scope"] isEqualToString:@"read-write"] ){
+				_readOnly = NO;
+			}
 		}
 	}
 	
