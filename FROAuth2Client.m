@@ -31,10 +31,11 @@
 	
 	return [NSURL URLWithString:
 			[NSString stringWithFormat:
-				@"%@?redirect_uri=%@&client_id=%@",
+				@"%@?redirect_uri=%@&client_id=%@&scope=%@",
 				aRequestURL,
 				[self redirectURL], 
-				[self key]
+				[self key],
+				@"read-write"
 			]
 	];
 }
